@@ -4,6 +4,7 @@ import time
 
 from .. import ids
 from . import buttons
+from . import bluetooth
 from src.backend import backendserver
 from src.backend.comm import cfg
 from src.backend.data import appdata, mapdata
@@ -55,6 +56,10 @@ accordion_settings = dbc.Accordion([
                                         dbc.Input(value = appdata.commcfg['UART'][1]['BAUDRATE'], id=ids.BAUDRATE, type='number'),
                                     ], id=ids.UARTCONNECTIONSTYLE)     
                                 ]),
+                                html.Div([
+                                    bluetooth.addbluetoothdevicebutton,
+                                    bluetooth.connected_bt_devices_list
+                                ])
                             ],
                             title='Connection',
                         ),
